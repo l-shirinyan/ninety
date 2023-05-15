@@ -29,7 +29,7 @@ export default function ServicesVentures() {
             width={200}
             height={200}
             alt="ellipse"
-            className="absolute left-0 top-5 -rotate-180 h-[22px] w-[22px] sm:w-[44px] sm:h-[44px] md:w-[74px] md:h-[74px] xl:left-[10rem]"
+            className="absolute left-0 top-5 -rotate-180 h-[22px] w-[22px] sm:w-[44px] sm:h-[44px] lg:w-[74px] lg:h-[74px] xl:left-[10rem]"
           />
           <p className="text-xs leading-5 md:text-base lg::text-2xl text-white text-center font-light m-auto lg:max-w-[1023px] py-10 md:pt-12 md:pb-[59px] lg:py-20">
             We team up with ambitious founders to transform their startup ideas
@@ -46,7 +46,7 @@ export default function ServicesVentures() {
             width={200}
             height={200}
             alt="ellipse"
-            className="absolute right-0 bottom-0 h-[22px] w-[22px] sm:w-[44px] sm:h-[44px] md:w-[74px] md:h-[74px] xl:right-[10rem]"
+            className="absolute right-0 bottom-0 h-[22px] w-[22px] sm:w-[44px] sm:h-[44px] lg:w-[74px] lg:h-[74px] xl:right-[10rem]"
           />
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 pt-20 mx-auto justify-center gap-x-5 gap-y-14">
