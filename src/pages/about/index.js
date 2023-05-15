@@ -1,11 +1,16 @@
-import React from 'react'
+import AboutGeneral from "@/components/about/general";
+import Info from "@/components/about/info";
+import Team from "@/components/about/team";
+import React from "react";
 
-const index = () => {
+const About = () => {
   return (
     <div>
-        About
+      <AboutGeneral />
+      <Info />
+      <Team />
     </div>
-  )
-}
+  );
+};
 
-export default index
+export default About;

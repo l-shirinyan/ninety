@@ -1,21 +1,23 @@
 export default function Banner() {
   return (
     <main>
-      <div className="bg-[url('../assets/home_banner.jpg')] h-[844px] w-full object-cover"> 
-        <div className='m-auto md:w-[751px] w-[378px] h-[491px]'>
-          <h2 className='text-white text-center lg:text-6xl text-4xl font-medium pt-28'>
+      <div className="bg-[url('../assets/home_banner.jpg')] h-[403px] md:h-[418px] lg:h-[844px] w-full object-cover px-5 md:px-0">
+        <div className="m-auto lg:w-[751px] md:w-[378px] md:h-[491px]">
+          <h2 className="text-white text-center lg:text-6xl text-2xl md:text-4xl font-medium pt-16 lg:pt-28 mb-8 md:mb-11 lg:mb-[58px]">
             Build. Launch. Grow
           </h2>
-          <div className='bg-white/25 md:w-[751px] w-[378px] border border-white md:h-80 h-44 opacity-50 mt-14'>
+          <div className="lg:w-[751px] relative w-[280px] md:w-[378px] lg:h-80 h-44 mt-14 mx-auto md:mx-0">
             <div>
-              <p className='text-white md:text-4xl text-lg text-center md:px-16 md:py-24 p-8 !bg-inherit'>
-              <span className='text-[#8E6DFD]'>ninety3 </span>is a strategic digital product and venture studio giving the worlds most promising companies an edge.
+              <p className="text-white lg:text-4xl text-base md:text-lg text-center lg:px-[38px] lg:py-24 p-8 !bg-inherit">
+                <span className="text-light-purple">ninety3 </span>is a
+                strategic digital product and venture studio giving the worlds
+                most promising companies an edge.
               </p>
             </div>
+            <div className="bg-white/25 absolute w-full h-full top-0 border border-white opacity-50"></div>
           </div>
         </div>
       </div>
     </main>
-  )
+  );
 }
-  
