@@ -102,6 +102,7 @@ export default function Services() {
               modules={[Pagination]}
               pagination={pagination}
               direction="horizontal"
+              speed={600}
             >
               {info.map((item, idx) => (
                 <SwiperSlide key={idx} className="w-full">
