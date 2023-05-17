@@ -1,21 +1,30 @@
 import Image from "next/image";
 import fight_legends from "../../../assets/works/fight_legends.jpg";
 import funtime from "../../../assets/works/funtime.jpg";
-import Yorkstcapital from "../../../assets/works/yorkstcapital.jpeg";
+import Yorkstcapital from "../../../assets/works/yorkstcapital.png";
 import Photoskin from "../../../assets/works/photoskin.jpeg";
-import liquid from "../../../assets/works/liquid.jpg";
+import Moonraydr from "../../../assets/works/moonraydr.png";
+import liquid from "../../../assets/works/liquid.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 
-const images = [fight_legends, funtime, liquid, Yorkstcapital, Photoskin];
+const images = [
+  fight_legends,
+  funtime,
+  liquid,
+  Yorkstcapital,
+  Photoskin,
+  Moonraydr,
+];
 const data = [
   { title: "Fight Legends", desc: "Web3 GameFi" },
   { title: "The Wiggles FunTime with Faces", desc: "Mobile App" },
   { title: "Liquid Crypto", desc: "Web3 DeFi platform" },
   { title: "Yorkstcapital", desc: "Web platform" },
   { title: "Photoskin", desc: "Web platform" },
+  { title: "Moonraydr", desc: "Web platform" },
 ];
 
 export default function Banner() {
@@ -44,7 +53,12 @@ export default function Banner() {
         <SwiperSlide key={idx} className="w-full">
           <div className="h-60 md:h-80 mx-auto w-max border-b-[3px] pb-5 md:pb-0 border-primary">
             <div className="w-[250px] relative h-full max-h-[220px] sm:w-[300px] md:w-[373px] sm:max-h-[285px]">
-              <Image src={item} alt="img" fill={true} />
+              <Image
+                src={item}
+                alt="img"
+                fill={true}
+                className="object-cover"
+              />
             </div>
           </div>
           <div className="flex flex-col justify-center items-center mt-3 lg:mt-5 gap-1">

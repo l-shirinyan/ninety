@@ -163,7 +163,7 @@ export const challengesData = [
   },
   {
     img: Mark,
-    title: "Designy",
+    title: "Design",
     desc: "Once we have nailed the product strategy, it's time to start on the design and build. Using the insights we've identified, our cross-functional team works collaboratively to create and build the product of your dreams. Our product creation process focuses on building products for scale while improving and evolving the product every step of the way. ",
   },
   {
@@ -196,7 +196,7 @@ export const aboutData = [
   },
   {
     img: Hristina,
-    title: "Head of Content",
+    title: "Hristina Mancheva",
     desc: "Creative Director",
   },
   {

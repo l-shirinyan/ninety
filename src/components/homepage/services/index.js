@@ -3,12 +3,37 @@ import ellipse from "../../../assets/ellipse.png";
 import Arrow from "../../../assets/digital/greyarrow.png";
 import { useState } from "react";
 import { info } from "@/utils/constants";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper";
+import "swiper/css";
+import "swiper/css/pagination";
+import * as ReactDOMServer from "react-dom/server";
+
+const titles = ["Digital", "Ventures", "Marketing"];
 
 export default function Services() {
   const [selected, setSelected] = useState(0);
 
   const handleChangeText = (text) => {
     setSelected(text);
+  };
+  const pagination = {
+    clickable: true,
+    renderBullet: function (index, className) {
+      return ReactDOMServer.renderToStaticMarkup(
+        <div className={`flex md:flex-col w-max ${className}`}>
+          <button onClick={() => handleChangeText(index)}>
+            <p className="text-white/20 w-max text-left text-base md:text-[30px] lg:text-[50px] leading-[40px] lg:leading-[74px] font-bold">
+              {titles[index]}
+            </p>
+          </button>
+        </div>
+      );
+    },
+  };
+
+  const handleSlideChange = (swiper) => {
+    setSelected(swiper.realIndex);
   };
 
   return (
@@ -52,46 +77,59 @@ export default function Services() {
           </div>
         </div>
         <div className="flex flex-col md:flex-row relative text-2xl md:mt-12 lg:mt-32">
-          <div
-            onMouseDown={() => console.log(0)}
-            className="flex md:flex-col justify-between absolute w-full md:static md:w-auto md:justify-end -mt-10 cursor-pointer"
-          >
-            <button onClick={() => handleChangeText(0)}>
-              <p
-                className={`${
-                  selected === 0 ? "title-gradient" : "text-white/20"
-                } w-max text-left text-base md:text-[30px] lg:text-[50px] leading-[40px] lg:leading-[74px] font-bold`}
-              >
-                Digital
-              </p>
-            </button>
-            <button onClick={() => handleChangeText(1)}>
-              <p
-                className={`${
-                  selected === 1 ? "title-gradient" : "text-white/20"
-                } w-max text-left text-base md:text-[30px] lg:text-[50px] leading-[40px] lg:leading-[74px] font-bold`}
-              >
-                Ventures
-              </p>
-            </button>
-            <button onClick={() => handleChangeText(2)}>
-              <p
-                className={`${
-                  selected === 2 ? "title-gradient" : "text-white/20"
-                } w-max text-left text-base md:text-[30px] lg:text-[50px] leading-[40px] lg:leading-[74px] font-bold`}
-              >
-                Marketing
-              </p>
-            </button>
+          <div className="hidden flex-col justify-between absolute w-full md:static md:w-auto md:justify-end -mt-10 cursor-pointer md:flex">
+            <Swiper
+              onSlideChange={handleSlideChange}
+              className="w-full mx-auto servicesSlider mt-10 md:mt-0 md:!pl-[150px] lg:!pl-[224px] h-[330px] md:h-[440px] justify-center items-end !flex"
+              slidesPerView={1}
+              loop
+              modules={[Pagination]}
+              pagination={pagination}
+              direction="vertical"
+              grabCursor={true}
+              mousewheel={true}
+              cssMode={true}
+              centeredSlides={true}
+            >
+              {info.map((item, idx) => (
+                <SwiperSlide key={idx} className="w-full">
+                  <div className="md:ml-28 -pl-5 max-w-[963px] mt-[30px] md:mt-0">
+                    <p className="text-xs lg:text-xl text-white text-left">
+                      {item.first}
+                    </p>
+                    <br />
+                    <p className="text-xs lg:text-xl text-white text-left">
+                      {item?.second}
+                    </p>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
-          <div className="md:ml-28 -pl-5 max-w-[963px] mt-[30px] md:mt-0">
-            <p className="text-xs lg:text-xl text-white text-left">
-              {info[selected].first}
-            </p>
-            <br />
-            <p className="text-xs lg:text-xl text-white text-left">
-              {info[selected]?.second}
-            </p>
+          <div className="flex md:flex-col justify-between absolute w-full md:static md:w-auto md:justify-end -mt-10 cursor-pointer md:hidden">
+            <Swiper
+              onSlideChange={handleSlideChange}
+              className="w-full mx-auto servicesSlider md:!pl-[150px] lg:!pl-[224px] h-[330px] md:h-[440px] !flex justify-center items-end"
+              slidesPerView={1}
+              loop
+              modules={[Pagination]}
+              pagination={pagination}
+              direction="horizontal"
+            >
+              {info.map((item, idx) => (
+                <SwiperSlide key={idx} className="w-full">
+                  <div className="md:ml-28 -pl-5 max-w-[963px] mt-[70px]">
+                    <p className="text-xs lg:text-xl text-white text-left">
+                      {item.first}
+                    </p>
+                    <br />
+                    <p className="text-xs lg:text-xl text-white text-left">
+                      {item?.second}
+                    </p>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
         </div>
       </div>
