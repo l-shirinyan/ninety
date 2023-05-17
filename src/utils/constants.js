@@ -90,18 +90,21 @@ export const news = [
   {
     title: "How to improve Web Design Process",
     img: FirstNewsImg,
+    link: "https://medium.com/@meagan_23249/what-web3-tech-startups-needs-to-do-in-order-to-successfully-raise-capital-4dbef035187c",
     description:
       "Once your visitors land on your site (likely through the blog or home page), you need to guide them to places on your website that will help nurture them to conversion. ",
   },
   {
     title: "How to improve Web Design Process",
     img: SecondNewsImg,
+    link: "https://medium.com/@meagan_23249/why-startups-fail-and-how-to-avoid-it-66fd7b8c03b4",
     description:
       "Once your visitors land on your site (likely through the blog or home page), you need to guide them to places on your website that will help nurture them to conversion. ",
   },
   {
     title: "How to improve Web Design Process",
     img: ThirdNewsImg,
+    link: "https://medium.com/@meagan_23249/why-customer-experience-cx3-is-so-important-for-web3-projects-b6fbf098b934",
     description:
       "Once your visitors land on your site (likely through the blog or home page), you need to guide them to places on your website that will help nurture them to conversion. ",
   },
@@ -146,7 +149,7 @@ export const socialLinks = [
   { image: InstagramIcon, link: "https://www.instagram.com/ninety3_io/" },
   {
     image: LinkedinIcon,
-    link: "https://www.linkedin.com/company/82585569/admin/",
+    link: "https://www.linkedin.com/company/ninety3io/",
   },
   { image: TwitterIcon, link: "https://twitter.com/Ninety3io" },
   {
@@ -182,7 +185,7 @@ export const aboutData = [
   {
     img: Amy,
     title: "Amy Voller",
-    desc: "Strategist",
+    desc: "Strategy Consultant",
   },
   {
     img: James,

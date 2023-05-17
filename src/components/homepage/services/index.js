@@ -1,7 +1,7 @@
 import Image from "next/image";
 import ellipse from "../../../assets/ellipse.png";
 import Arrow from "../../../assets/digital/greyarrow.png";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { info } from "@/utils/constants";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
@@ -12,17 +12,14 @@ import * as ReactDOMServer from "react-dom/server";
 const titles = ["Digital", "Ventures", "Marketing"];
 
 export default function Services() {
-  const [selected, setSelected] = useState(0);
+  const containerRef = useRef(null);
 
-  const handleChangeText = (text) => {
-    setSelected(text);
-  };
   const pagination = {
     clickable: true,
     renderBullet: function (index, className) {
       return ReactDOMServer.renderToStaticMarkup(
         <div className={`flex md:flex-col w-max ${className}`}>
-          <button onClick={() => handleChangeText(index)}>
+          <button>
             <p className="text-white/20 w-max text-left text-base md:text-[30px] lg:text-[50px] leading-[40px] lg:leading-[74px] font-bold">
               {titles[index]}
             </p>
@@ -32,8 +29,19 @@ export default function Services() {
     },
   };
 
-  const handleSlideChange = (swiper) => {
-    setSelected(swiper.realIndex);
+  const handleWheelScroll = (event) => {
+    const container = containerRef.current;
+
+    // Calculate the amount of scroll to move the swiper
+    const delta = Math.sign(event.deltaY);
+
+    // Adjust the scroll speed as desired (smaller values for slower scroll)
+    const scrollSpeed = 1;
+
+    // Manually scroll the swiper by adjusting the scroll position
+    container.scrollTop += delta * scrollSpeed;
+
+    event.preventDefault(); // Prevent default page scrolling
   };
 
   return (
@@ -79,10 +87,11 @@ export default function Services() {
         <div className="flex flex-col md:flex-row relative text-2xl md:mt-12 lg:mt-32">
           <div className="hidden flex-col justify-between absolute w-full md:static md:w-auto md:justify-end -mt-10 cursor-pointer md:flex">
             <Swiper
-              onSlideChange={handleSlideChange}
               className="w-full mx-auto servicesSlider mt-10 md:mt-0 md:!pl-[150px] lg:!pl-[224px] h-[330px] md:h-[440px] justify-center items-end !flex"
               slidesPerView={1}
               loop
+              ref={containerRef}
+              onWheel={handleWheelScroll}
               modules={[Pagination]}
               pagination={pagination}
               direction="vertical"
@@ -108,7 +117,6 @@ export default function Services() {
           </div>
           <div className="flex md:flex-col justify-between absolute w-full md:static md:w-auto md:justify-end -mt-10 cursor-pointer md:hidden">
             <Swiper
-              onSlideChange={handleSlideChange}
               className="w-full mx-auto servicesSlider md:!pl-[150px] lg:!pl-[224px] h-[330px] md:h-[440px] !flex justify-center items-end"
               slidesPerView={1}
               loop

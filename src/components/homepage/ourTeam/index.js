@@ -14,7 +14,7 @@ export default function OurTeam() {
           <div className="bg-white/25 absolute w-full h-full top-0 left-0 border border-white opacity-50"></div>
         </div>
         <div className="flex text-white font-semibold mx-auto md:mx-0 mt-6 md:mt-16 h-12">
-          <Link href={"/services"}>
+          <Link href={"/about"}>
             <div className="h-10 btn-gradient-2 relative px-2 lg:w-[245px] rounded-full lg:h-[79px] flex gap-2 justify-center items-center">
               <span className="text-[#8E6DFD] md:text-base lg:text-lg text-xs">
                 Meet our Team

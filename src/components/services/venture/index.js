@@ -13,10 +13,9 @@ export default function ServicesVentures() {
             We team up with ambitious founders to transform their startup ideas
             into major success stories.
             <br />
-            As a team of entrepreneurs and founders,
             <br />
-            we understand the unique challenges of starting a business and
-            running a company.
+            As a team of entrepreneurs and founders, we understand the unique
+            challenges of starting a business and running a company.
           </p>
         </div>
         <div className="grid grid-cols-2 sm:flex flex-wrap pt-20 mx-auto justify-center gap-x-5 gap-y-14">

@@ -8,7 +8,7 @@ export default function Market() {
         Go to Market Strategy
       </h2>
       <div className="flex flex-col gap-5 lg:gap-16 items-center justify-between">
-        <p className="text-xs leading-5 text-center md:text-base lg::text-2xl text-dark-grey font-light lg:text-left lg:pr-24">
+        <p className="text-xs leading-5 text-center md:text-base lg:text-2xl text-dark-grey font-light lg:text-left lg:pr-24">
           With over 25 years experience helping companies launch their products,
           we know that having a solid strategy will make all the difference to
           your success. Once we have the strategy blueprint, we create your go

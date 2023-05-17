@@ -28,7 +28,7 @@ export default function MarketingGeneral() {
             alt="ellipse"
             className="absolute left-0 top-[6px] md:top-[43px] -rotate-180 h-[30px] w-[30px] sm:w-[44px] sm:h-[44px] lg:w-[74px] lg:h-[74px]"
           />
-          <div className="text-xs md:text-xl leading-4 md:leading-8 lg:leading-[67px] lg:text-[45px] text-center max-w-[455px] font-poppins text-white m-auto lg:max-w-[1023px] py-10 md:pt-12 md:pb-[59px] lg:py-20">
+          <div className="text-xs md:text-xl leading-4 md:leading-8 lg:leading-[67px] lg:text-[43px] text-center max-w-[455px] font-poppins text-white m-auto lg:max-w-[1030px] py-10 md:pt-12 md:pb-[59px] lg:py-20">
             A dedicated and highly experienced{" "}
             <span className="title-gradient">marketing team</span> without the
             cost of big agencies.

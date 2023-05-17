@@ -4,11 +4,13 @@ import funtime from "../../../assets/works/funtime.jpg";
 import Yorkstcapital from "../../../assets/works/yorkstcapital.png";
 import Photoskin from "../../../assets/works/photoskin.jpeg";
 import Moonraydr from "../../../assets/works/moonraydr.png";
+import Propertyfirstinvestments from "../../../assets/works/propertyfirstinvestments.png";
 import liquid from "../../../assets/works/liquid.png";
+import Weyo from "../../../assets/works/weyo.png";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
+import { Pagination } from "swiper";
 
 const images = [
   fight_legends,
@@ -17,14 +19,18 @@ const images = [
   Yorkstcapital,
   Photoskin,
   Moonraydr,
+  Propertyfirstinvestments,
+  Weyo,
 ];
 const data = [
   { title: "Fight Legends", desc: "Web3 GameFi" },
   { title: "The Wiggles FunTime with Faces", desc: "Mobile App" },
   { title: "Liquid Crypto", desc: "Web3 DeFi platform" },
-  { title: "Yorkstcapital", desc: "Web platform" },
-  { title: "Photoskin", desc: "Web platform" },
-  { title: "Moonraydr", desc: "Web platform" },
+  { title: "York St Capital", desc: "Web platform" },
+  { title: "Photoskin", desc: "E-commerce platform" },
+  { title: "Moonraydr", desc: "Web3 platform" },
+  { title: "Property First Investments", desc: "Web platform" },
+  { title: "Weyo", desc: "Mobile App" },
 ];
 
 export default function Banner() {

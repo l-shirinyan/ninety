@@ -58,6 +58,7 @@ export default function Footer() {
                 <Link
                   key={idx}
                   href={item.link}
+                  target="_blank"
                   rel="noreferrer"
                   className="block cursor-pointer "
                 >

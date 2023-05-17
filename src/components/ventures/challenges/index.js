@@ -62,7 +62,7 @@ export default function VenturesChallenges() {
         <Link href={"/services"}>
           <div className="h-10 btn-gradient-2 relative px-2 lg:w-[245px] rounded-full lg:h-[79px] flex gap-2 justify-center items-center">
             <span className="text-[#8E6DFD] md:text-base lg:text-lg text-xs">
-              Ventures services
+              Venture services
             </span>
             <Image
               priority={true}
