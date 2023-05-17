@@ -1,5 +1,5 @@
 import React from "react";
-import Person from "../../../assets/about/about.png";
+import Person from "../../../assets/about/about.jpeg";
 import Image from "next/image";
 
 const index = () => {
