@@ -1,6 +1,5 @@
 import Image from "next/image";
 import fight_legends from "../../../assets/works/fight_legends.jpg";
-import funtime from "../../../assets/works/funtime.jpg";
 import Yorkstcapital from "../../../assets/works/yorkstcapital.png";
 import Photoskin from "../../../assets/works/photoskin.jpeg";
 import Moonraydr from "../../../assets/works/moonraydr.png";
@@ -14,7 +13,6 @@ import { Pagination } from "swiper";
 
 const images = [
   fight_legends,
-  funtime,
   liquid,
   Yorkstcapital,
   Photoskin,
@@ -24,7 +22,6 @@ const images = [
 ];
 const data = [
   { title: "Fight Legends", desc: "Web3 GameFi" },
-  { title: "The Wiggles FunTime with Faces", desc: "Mobile App" },
   { title: "Liquid Crypto", desc: "Web3 DeFi platform" },
   { title: "York St Capital", desc: "Web platform" },
   { title: "Photoskin", desc: "E-commerce platform" },

@@ -8,7 +8,7 @@ import "swiper/css";
 export default function News() {
   return (
     <main>
-      <div className="lg:h-[1174px] background-gradient lg:px-36 md:px-20 px-10 pt-11 md:pt-[50px] pb-14 md:pb-[104px]">
+      <div id="news" className="background-gradient lg:px-36 md:px-20 px-10 pt-11 md:pt-[50px] pb-14 md:pb-[104px]">
         <div className="flex justify-start items-center h-12 md:h-[120px]">
           <div className="relative w-96 h-full flex justify-start items-center">
             <Image
@@ -44,7 +44,7 @@ export default function News() {
             return (
               <SwiperSlide
                 key={index}
-                className="max-w-[205px] md:max-w-[310px] lg:max-w-[350px] 2xl:max-w-[400px] w-full flex flex-col border-2 bg_gradient bg-grey-100 hover:bg-rainbowGradient cursor-pointer"
+                className="max-w-[205px] md:max-w-[310px] lg:max-w-[350px] 2xl:max-w-[400px] !h-auto w-full flex flex-col border-2 bg_gradient bg-grey-100 hover:bg-rainbowGradient cursor-pointer"
               >
                 <Image
                   priority={true}
@@ -52,8 +52,8 @@ export default function News() {
                   alt="news image"
                   className="w-full cursor-pointer max-h-[153px] lg:max-h-[230px]"
                 />
-                <div className="pt-5 pl-2 lg:pl-[14px] pr-5 pb-5 font-poppins filter-Shadow cursor-pointer">
-                  <span className="font-medium text-sm lg:text-[22px] text-white block w-full">
+                <div className="pt-5 pl-2 lg:pl-[14px] flex flex-col justify-between pr-5 pb-5 font-poppins filter-Shadow cursor-pointer">
+                  <span className="font-medium text-sm lg:text-[22px] leading-7 text-white block w-full !line-clamp-2">
                     {item.title}
                   </span>
                   <p className="font-light text-xs lg:text-[17px] text-white pt-2 lg:pt-[14px] block leading-7 !line-clamp-2">

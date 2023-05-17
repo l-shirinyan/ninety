@@ -28,7 +28,7 @@ export default function Services() {
 
   return (
     <main>
-      <div className="h-[500px] lg:h-[1174px] background-gradient lg:px-36 md:px-20 px-10">
+      <div className="h-[500px] sm:h-[380px] md:h-auto background-gradient lg:px-36 md:px-20 px-10">
         <div className="relative">
           <Image
             priority={true}
@@ -69,7 +69,7 @@ export default function Services() {
         <div className="flex flex-col md:flex-row relative text-2xl md:mt-12 lg:mt-32">
           <div className="hidden flex-col justify-between absolute w-full md:static md:w-auto md:justify-end -mt-10 cursor-pointer md:flex">
             <Swiper
-              className="w-full mx-auto servicesSlider mt-10 md:mt-0 md:!pl-[150px] lg:!pl-[224px] h-[330px] md:h-[440px] justify-center items-end !flex"
+              className="w-full mx-auto servicesSlider mt-10 md:mt-0 md:!pl-[150px] lg:!pl-[224px] h-[330px] md:h-[220px] lg:h-[400px] 2lg:h-[340px] justify-center items-end !flex"
               slidesPerView={1}
               loop
               modules={[Pagination]}
@@ -96,7 +96,7 @@ export default function Services() {
           </div>
           <div className="flex md:flex-col justify-between absolute w-full md:static md:w-auto md:justify-end -mt-10 cursor-pointer md:hidden">
             <Swiper
-              className="w-full mx-auto servicesSlider md:!pl-[150px] lg:!pl-[224px] h-[330px] md:h-[440px] !flex justify-center items-end"
+              className="w-full mx-auto servicesSlider md:!pl-[150px] lg:!pl-[224px] h-[330px] !flex justify-center items-end"
               slidesPerView={1}
               loop
               modules={[Pagination]}

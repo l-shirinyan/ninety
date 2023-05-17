@@ -6,6 +6,7 @@ import ninetyLogo from "../../assets/ninety_logo.png";
 import { dromdown, navigation, user } from "@/utils/constants";
 import useOnClickOutside from "@/hooks/useOnClickOutside";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -14,6 +15,7 @@ function classNames(...classes) {
 export default function Nav({ scrollDirection }) {
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
+  const router = useRouter();
 
   const handleDisclosureChange = () => {
     setOpen(!open);
@@ -41,6 +43,10 @@ export default function Nav({ scrollDirection }) {
   }, [open]);
 
   useOnClickOutside(ref, () => setOpen(false));
+
+  const state = {
+    news: "news",
+  };
 
   return (
     <>
@@ -112,11 +118,20 @@ export default function Nav({ scrollDirection }) {
                                 <Menu.Item key={item.name}>
                                   {({ active }) => (
                                     <a
-                                      href={item.href}
+                                      href={
+                                        item.name === "News"
+                                          ? undefined
+                                          : item.href
+                                      }
                                       className={classNames(
                                         active ? "bg-gray-900" : "",
                                         "block px-4 py-2 text-base text-center md:text-left md:text-[26px] text-white"
                                       )}
+                                      onClick={() =>
+                                        item.name === "News"
+                                          ? router.push("/#news")
+                                          : undefined
+                                      }
                                     >
                                       {item.name}
                                     </a>

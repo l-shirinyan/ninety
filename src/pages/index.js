@@ -4,8 +4,11 @@ import Works from "@/components/homepage/works";
 import OurTeam from "@/components/homepage/ourTeam";
 import Partners from "@/components/homepage/partners";
 import News from "@/components/homepage/news";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 export default function Home() {
+
   return (
     <main>
       <main>

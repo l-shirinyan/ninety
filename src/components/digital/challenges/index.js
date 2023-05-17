@@ -28,7 +28,7 @@ export default function Challenges() {
           className="absolute right-0 bottom-0 h-[30px] w-[30px] sm:w-[44px] sm:h-[44px] lg:w-[74px] lg:h-[74px]"
         />
       </div>
-      <div className="w-full flex items-start justify-center lg:justify-around gap-5 flex-wrap max-w-[1269px]">
+      <div className="w-full flex items-start justify-center lg:justify-around gap-5 flex-wrap max-w-[1269px] mx-auto mt-10 md:mt-20">
         {challengesData.map((elem, idx) => {
           return (
             <div

@@ -1,5 +1,5 @@
 import FirstNewsImg from "../assets/news/newsFirst.jpg";
-import SecondNewsImg from "../assets/news/newsSecond.png";
+import SecondNewsImg from "../assets/news/newsSecond.jpg";
 import ThirdNewsImg from "../assets/news/newsThird.jpg";
 import InstagramIcon from "../assets/icons/instagram.png";
 import LinkedinIcon from "../assets/icons/linkedin.png";
@@ -72,7 +72,7 @@ export const dromdown = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
   { name: "Services", href: "/services" },
-  { name: "News", href: "#" },
+  { name: "News", href: "/#news" },
   { name: "Contacts", href: "/contact" },
 ];
 
@@ -88,25 +88,25 @@ export const defaultMetaData = {
 
 export const news = [
   {
-    title: "How to improve Web Design Process",
+    title: "What Web3 tech startups needs to do in order to successfully raise capital",
     img: FirstNewsImg,
     link: "https://medium.com/@meagan_23249/what-web3-tech-startups-needs-to-do-in-order-to-successfully-raise-capital-4dbef035187c",
     description:
-      "Once your visitors land on your site (likely through the blog or home page), you need to guide them to places on your website that will help nurture them to conversion. ",
+      "Raising capital is a critical step for any startup, but it can be especially challenging for Web3 tech startups. This is because the Web3 space is still relatively new and there is a lot of uncertainty about the future of the technology.",
   },
   {
-    title: "How to improve Web Design Process",
+    title: "Why Startups Fail and How to Avoid It",
     img: SecondNewsImg,
     link: "https://medium.com/@meagan_23249/why-startups-fail-and-how-to-avoid-it-66fd7b8c03b4",
     description:
-      "Once your visitors land on your site (likely through the blog or home page), you need to guide them to places on your website that will help nurture them to conversion. ",
+      "Starting a business is a risky proposition. According to the U.S. Bureau of Labor Statistics, only about 50% of startups survive for five years and only about 20% survive for 10 years. There are many reasons why startups fail, but some of the most common include:",
   },
   {
-    title: "How to improve Web Design Process",
+    title: "Why customer experience (CX3) is so important for Web3 Projects",
     img: ThirdNewsImg,
     link: "https://medium.com/@meagan_23249/why-customer-experience-cx3-is-so-important-for-web3-projects-b6fbf098b934",
     description:
-      "Once your visitors land on your site (likely through the blog or home page), you need to guide them to places on your website that will help nurture them to conversion. ",
+      "Web3 is the next generation of the internet, built on blockchain technology. It promises to be more decentralized, secure, and transparent than the current web. However, for Web3 to succeed, it needs to provide a great customer experience.",
   },
 ];
 export const footerLinks = [
@@ -116,7 +116,7 @@ export const footerLinks = [
     categories: [
       { title: "Home", link: "/" },
       { title: "About us", link: "/about" },
-      { title: "News", link: "#" },
+      { title: "News", link: "/#news" },
     ],
   },
   {
