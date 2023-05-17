@@ -1,7 +1,6 @@
 import Image from "next/image";
 import ellipse from "../../../assets/ellipse.png";
 import Arrow from "../../../assets/digital/greyarrow.png";
-import { useEffect, useRef, useState } from "react";
 import { info } from "@/utils/constants";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
@@ -12,8 +11,6 @@ import * as ReactDOMServer from "react-dom/server";
 const titles = ["Digital", "Ventures", "Marketing"];
 
 export default function Services() {
-  const containerRef = useRef(null);
-
   const pagination = {
     clickable: true,
     renderBullet: function (index, className) {
@@ -27,21 +24,6 @@ export default function Services() {
         </div>
       );
     },
-  };
-
-  const handleWheelScroll = (event) => {
-    const container = containerRef.current;
-
-    // Calculate the amount of scroll to move the swiper
-    const delta = Math.sign(event.deltaY);
-
-    // Adjust the scroll speed as desired (smaller values for slower scroll)
-    const scrollSpeed = 1;
-
-    // Manually scroll the swiper by adjusting the scroll position
-    container.scrollTop += delta * scrollSpeed;
-
-    event.preventDefault(); // Prevent default page scrolling
   };
 
   return (
@@ -90,15 +72,12 @@ export default function Services() {
               className="w-full mx-auto servicesSlider mt-10 md:mt-0 md:!pl-[150px] lg:!pl-[224px] h-[330px] md:h-[440px] justify-center items-end !flex"
               slidesPerView={1}
               loop
-              ref={containerRef}
-              onWheel={handleWheelScroll}
               modules={[Pagination]}
               pagination={pagination}
               direction="vertical"
               grabCursor={true}
               mousewheel={true}
               cssMode={true}
-              centeredSlides={true}
             >
               {info.map((item, idx) => (
                 <SwiperSlide key={idx} className="w-full">

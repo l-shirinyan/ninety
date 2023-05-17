@@ -53,6 +53,7 @@ export default function Banner() {
       }}
       modules={[Pagination]}
       loop
+      speed={600}
       pagination={{ clickable: true }}
     >
       {images.map((item, idx) => (

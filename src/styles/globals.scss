@@ -88,6 +88,9 @@ body {
   }
 }
 
+.swiper-vertical.swiper-css-mode > .swiper-wrapper {
+  scroll-snap-type: none !important;
+}
 .servicesSlider {
   .swiper-pagination {
     position: absolute;
