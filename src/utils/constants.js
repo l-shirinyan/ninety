@@ -4,7 +4,7 @@ import ThirdNewsImg from "../assets/news/newsThird.png";
 import InstagramIcon from "../assets/icons/instagram.png";
 import LinkedinIcon from "../assets/icons/linkedin.png";
 import TwitterIcon from "../assets/icons/twitter.png";
-import TelegramIcon from "../assets/icons/telegram.png";
+import FacebookIcon from "../assets/icons/facebook.png";
 import TouchIcon from "../assets/icons/touch.png";
 import PhoneIcon from "../assets/icons/phone.png";
 import MessageIcon from "../assets/icons/message.png";
@@ -143,12 +143,15 @@ export const footerLinks = [
   },
 ];
 export const socialLinks = [
-  { image: InstagramIcon, link: "https://t.me/liquidcryptofinance" },
-  { image: LinkedinIcon, link: "https://discord.io/liquidcrypto" },
-  { image: TwitterIcon, link: "https://twitter.com/_LiquidCrypto" },
+  { image: InstagramIcon, link: "https://www.instagram.com/ninety3_io/" },
   {
-    image: TelegramIcon,
-    link: "https://www.instagram.com/liquidcrypto.finance",
+    image: LinkedinIcon,
+    link: "https://www.linkedin.com/company/82585569/admin/",
+  },
+  { image: TwitterIcon, link: "https://twitter.com/Ninety3io" },
+  {
+    image: FacebookIcon,
+    link: "https://www.facebook.com/ninety3.io",
   },
 ];
 
@@ -377,3 +380,25 @@ export const partners = [
     title: "Technology Partners",
   },
 ];
+
+export const info = [
+  {
+    first:
+      "Our digital product studio combines leading technology and cutting-edge design to create products that are stylish, powerful and functional. We believe great products that work and solve real-world problems is key to long-lasting growth and success.",
+    second:
+      "Whether you have a bold idea and are just starting out, or an already established business, we partner with you to help you build, elevate your strengths, and realise your vision.",
+  },
+  {
+    first:
+      "We team up with ambitious founders to transform their startup ideas into major success stories.",
+    second: `As a team of entrepreneurs and founders, we understand the unique challenges of starting a business and running a company. That's why we've created a venture studio model that is designed to prepare your business for success, no matter which stage of the business journey you’re in. Over a period of 12-18 months, we will help your business build, launch, and thrive.`,
+  },
+  {
+    first:
+      "We know that creating and executing an impactful go-to market marketing strategy is critical to success. Our full-service of marketing team is here to meet all your marketing needs, including designing a winning launch plan that will not only create the right buzz in the market, but also deliver on your business objectives.",
+  },
+];
+
+export const items = [`NFT’s`, "Metaverse", "Gaming"];
+
+export const secondItem = ["DeFi", "Token generation", "Blockchain"];

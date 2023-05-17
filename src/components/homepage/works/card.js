@@ -1,25 +1,27 @@
 import Image from "next/image";
 import fight_legends from "../../../assets/works/fight_legends.jpg";
 import funtime from "../../../assets/works/funtime.jpg";
+import Yorkstcapital from "../../../assets/works/yorkstcapital.jpeg";
+import Photoskin from "../../../assets/works/photoskin.jpeg";
 import liquid from "../../../assets/works/liquid.jpg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 
-const images = [fight_legends, funtime, fight_legends, liquid];
+const images = [fight_legends, funtime, liquid, Yorkstcapital, Photoskin];
 const data = [
   { title: "Fight Legends", desc: "Web3 GameFi" },
   { title: "The Wiggles FunTime with Faces", desc: "Mobile App" },
-  { title: "Fight Legends", desc: "Web3 GameFi" },
   { title: "Liquid Crypto", desc: "Web3 DeFi platform" },
+  { title: "Yorkstcapital", desc: "Web platform" },
+  { title: "Photoskin", desc: "Web platform" },
 ];
 
 export default function Banner() {
   return (
     <Swiper
       className="w-full mx-auto homeSwiper h-[330px] md:h-[440px] !flex justify-center items-end"
-      spaceBetween={10}
       breakpoints={{
         640: {
           slidesPerView: 1,
@@ -47,10 +49,10 @@ export default function Banner() {
           </div>
           <div className="flex flex-col justify-center items-center mt-3 lg:mt-5 gap-1">
             <span className="text-black text-base md:text-lg">
-              {data[idx].title}
+              {data[idx]?.title || ""}
             </span>
             <span className="text-xs leading-5 md:text-base lg::text-2xl text-dark-grey text-center font-light">
-              {data[idx].desc}
+              {data[idx]?.desc || ""}
             </span>
           </div>
         </SwiperSlide>

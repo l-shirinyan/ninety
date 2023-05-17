@@ -4,7 +4,7 @@ import Marketing from "../../../assets/marketing/marketing.png";
 export default function Market() {
   return (
     <main className="min-h-[317px] md:min-h-[414px] h-full lg:min-h-[746px] lg:px-36 md:px-20 pb-20 px-10 pt-9 md:pt-[60px] bg-[#f5f5f5]">
-      <h2 className="title-gradient mx-auto text-[22px] lg:mx-0 md:text-[40px] lg:text-[80px] font-bold pb-5 lg:pb-20 w-max">
+      <h2 className="title-gradient mx-auto text-[22px] lg:mx-0 md:text-[40px] lg:text-[70px] xl:text-[80px] font-bold pb-5 lg:pb-20 w-max">
         Go to Market Strategy
       </h2>
       <div className="flex flex-col gap-5 lg:gap-16 items-center justify-between">

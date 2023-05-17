@@ -49,7 +49,7 @@ export default function Footer() {
               );
             })}
           </div>
-          <div className="md:pt-[35px] lg:h-full flex-col md:flex-row items-center md:items-start flex 2xl:flex-col gap-[35px] 2xl:ml-10 md:mr-[73px] 2xl:mr-0 pb-3 2xl:pb-0">
+          <div className="md:pt-[35px] lg:h-full flex-col md:flex-row items-center 2xl:items-start flex 2xl:flex-col gap-[35px] 2xl:ml-10 md:mr-[73px] 2xl:mr-0 pb-3 2xl:pb-0">
             <span className="text-base lg:text-2xl font-normal text-white w-max text-center">
               Follow Us
             </span>
@@ -65,7 +65,7 @@ export default function Footer() {
                     priority={true}
                     src={item.image}
                     alt="banner"
-                    className="h-max min-h-[28px] min-w-[28px]"
+                    className="max-w-[31px]"
                   />
                 </Link>
               ))}
@@ -78,7 +78,7 @@ export default function Footer() {
           ninety3 © Copyright {new Date().getFullYear()} All Rights Reserved{" "}
         </span>
         <div className="flex gap-3">
-          <span>Created</span>
+          <span>Created by</span>
           <Image
             priority={true}
             src={ninetyLogo}
