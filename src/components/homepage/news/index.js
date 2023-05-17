@@ -50,7 +50,7 @@ export default function News() {
                   priority={true}
                   src={item.img}
                   alt="news image"
-                  className="w-full cursor-pointer max-h-[153px] lg:max-h-none"
+                  className="w-full cursor-pointer max-h-[153px] lg:max-h-[230px]"
                 />
                 <div className="pt-5 pl-2 lg:pl-[14px] pr-5 pb-5 font-poppins filter-Shadow cursor-pointer">
                   <span className="font-medium text-sm lg:text-[22px] text-white block w-full">
