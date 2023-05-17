@@ -6,7 +6,7 @@ import Photoskin from "../../../assets/works/photoskin.jpeg";
 import Moonraydr from "../../../assets/works/moonraydr.png";
 import Propertyfirstinvestments from "../../../assets/works/propertyfirstinvestments.png";
 import liquid from "../../../assets/works/liquid.png";
-import Weyo from "../../../assets/works/weyo.png";
+import Weyo from "../../../assets/works/weyo.jpeg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -64,7 +64,7 @@ export default function Banner() {
                 src={item}
                 alt="img"
                 fill={true}
-                className="object-cover"
+                className={data[idx]?.title === "Weyo" ? "" : "object-cover"}
               />
             </div>
           </div>
