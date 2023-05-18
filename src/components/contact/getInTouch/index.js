@@ -2,12 +2,19 @@ import React, { useState } from "react";
 import Image from "next/image";
 import ellipse from "../../../assets/ellipse.png";
 import Arrow from "../../../assets/digital/arrow.png";
+import Modal from "@/components/reusable/Modal";
 
 export default function GetInTouch() {
   const [name, setName] = useState("");
+  const [open, setOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [error, setError] = useState({ mail: "", text: "", name: "" });
+  const [error, setError] = useState({
+    mail: "",
+    text: "",
+    name: "",
+    success: "",
+  });
 
   const handleNameChange = (e) => {
     if (e.target.value) {
@@ -24,8 +31,8 @@ export default function GetInTouch() {
 
   const handleEmailChange = (e) => {
     const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    setEmail(e.target.value);
     if (e.target.value.match(mailformat)) {
-      setEmail(e.target.value);
       setError((prev) => {
         return { ...prev, mail: "" };
       });
@@ -56,37 +63,55 @@ export default function GetInTouch() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!name) {
-      setError((prev) => {
-        return { ...prev, name: "Name field is required" };
-      });
-      return;
-    }
+    if (!Object.values(error).some((item) => item)) {
+      try {
+        const response = await fetch("/api/send-email", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            message,
+          }),
+        });
 
-    try {
-      const response = await fetch("/api/send-email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          message,
-        }),
-      });
-
-      if (response.ok) {
+        if (response.ok) {
+          setMessage("");
+          setEmail("");
+          setName("");
+          setError({
+            mail: "",
+            text: "",
+            name: "",
+            success: "Email was successfuly sent!",
+          });
+          setOpen(true);
+          setTimeout(() => {
+            setError({
+              mail: "",
+              text: "",
+              name: "",
+              success: "",
+            });
+            setOpen(false);
+          }, 3000);
+        } else {
+          setMessage("");
+          setEmail("");
+          setName("");
+          setError((prev) => {
+            return { ...prev, text: "Failed to send email" };
+          });
+        }
+      } catch (error) {
         setMessage("");
         setEmail("");
         setName("");
-      } else {
-        setError((prev) => {
-          return { ...prev, text: "Failed to send email" };
-        });
       }
-    } catch (error) {
-      console.error(error);
+    } else {
+      return;
     }
   };
 
@@ -122,6 +147,7 @@ export default function GetInTouch() {
             <div className="w-full">
               <input
                 type="text"
+                value={name}
                 className="bg-transparent outline-none border-none h-14 w-full text-sm placeholder:text-sm md:text-base md:placeholder:text-base lg:text-xl lg:placeholder:text-xl placeholder:text-white text-white"
                 placeholder="Your Name"
                 onChange={handleNameChange}
@@ -135,7 +161,8 @@ export default function GetInTouch() {
             </div>
             <div className="w-full">
               <input
-                type="text"
+                type="email"
+                value={email}
                 className="bg-transparent outline-none border-none h-14 w-full text-sm placeholder:text-sm md:text-base md:placeholder:text-base lg:text-xl lg:placeholder:text-xl placeholder:text-white text-white"
                 placeholder="Your Email"
                 onChange={handleEmailChange}
@@ -150,6 +177,7 @@ export default function GetInTouch() {
             <div className="w-full">
               <input
                 type="text"
+                value={message}
                 className="bg-transparent outline-none border-none h-14 w-full text-sm placeholder:text-sm md:text-base md:placeholder:text-base lg:text-xl lg:placeholder:text-xl placeholder:text-white text-white"
                 placeholder="Your Message"
                 onChange={handleMessageChange}
@@ -164,7 +192,12 @@ export default function GetInTouch() {
             <div className="w-full flex justify-end">
               <button
                 type="submit"
-                disabled={!!error.text || !!error.name || !!error.mail}
+                disabled={
+                  Object.values(error).some((item) => item) ||
+                  !message ||
+                  !email ||
+                  !name
+                }
               >
                 <div className="h-10 btn-gradient-2 relative px-2 md:w-[180px] md:h-[50px] lg:w-[210px] rounded-full lg:h-[60px] flex gap-2 justify-center items-center">
                   <span className="text-[#8E6DFD] md:text-base lg:text-lg text-xs">
@@ -184,6 +217,7 @@ export default function GetInTouch() {
           </form>
         </div>
       </div>
+      <Modal open={open} setOpen={setOpen} text={error.success} />
     </main>
   );
 }
