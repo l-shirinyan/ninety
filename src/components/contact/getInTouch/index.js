@@ -1,9 +1,95 @@
+import React, { useState } from "react";
 import Image from "next/image";
 import ellipse from "../../../assets/ellipse.png";
-import Link from "next/link";
 import Arrow from "../../../assets/digital/arrow.png";
 
 export default function GetInTouch() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState({ mail: "", text: "", name: "" });
+
+  const handleNameChange = (e) => {
+    if (e.target.value) {
+      setName(e.target.value);
+      setError((prev) => {
+        return { ...prev, name: "" };
+      });
+    } else {
+      setError((prev) => {
+        return { ...prev, name: "Name field is required" };
+      });
+    }
+  };
+
+  const handleEmailChange = (e) => {
+    const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (e.target.value.match(mailformat)) {
+      setEmail(e.target.value);
+      setError((prev) => {
+        return { ...prev, mail: "" };
+      });
+    } else if (!e.target.value) {
+      setError((prev) => {
+        return { ...prev, mail: "Mail field is required" };
+      });
+    } else {
+      setError((prev) => {
+        return { ...prev, mail: "Mail is not valid" };
+      });
+    }
+  };
+
+  const handleMessageChange = (e) => {
+    if (e.target.value) {
+      setMessage(e.target.value);
+      setError((prev) => {
+        return { ...prev, text: "" };
+      });
+    } else {
+      setError((prev) => {
+        return { ...prev, text: "Message field is required" };
+      });
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!name) {
+      setError((prev) => {
+        return { ...prev, name: "Name field is required" };
+      });
+      return;
+    }
+
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          message,
+        }),
+      });
+
+      if (response.ok) {
+        setMessage("");
+        setEmail("");
+        setName("");
+      } else {
+        setError((prev) => {
+          return { ...prev, text: "Failed to send email" };
+        });
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <main>
       <div className="lg:min-h-[950px] h-full bg-gradient-image bg-no-repeat bg-full lg:px-36 md:px-20 px-10 pt-20 md:pt-[114px] pb-14 md:pb-[104px]">
@@ -28,48 +114,74 @@ export default function GetInTouch() {
           </p>
         </div>
 
-        <div className="max-w-[300px] gap-5 md:gap-12 lg:gap-16 md:max-w-[450px] mx-auto flex flex-col justify-center items-center lg:max-w-[800px] mt-5 md:mt-10 lg:mt-12">
-          <div className="w-full">
-            <input
-              type="text"
-              className="bg-transparent outline-none border-none h-14 w-full text-sm placeholder:text-sm md:text-base md:placeholder:text-base lg:text-xl lg:placeholder:text-xl placeholder:text-white text-white"
-              placeholder="Your Name"
-            />
-            <div className="border-b h-[2px] border-transparent bg-gradient-to-r w-full from-green-400 via-blue-500 to-purple-600 focus:border-green-400 focus:bg-gradient-to-r focus:from-green-400 focus:via-blue-500 focus:to-purple-600"></div>
-          </div>
-          <div className="w-full">
-            <input
-              type="text"
-              className="bg-transparent outline-none border-none h-14 w-full text-sm placeholder:text-sm md:text-base md:placeholder:text-base lg:text-xl lg:placeholder:text-xl placeholder:text-white text-white"
-              placeholder="Your Email"
-            />
-            <div className="border-b h-[2px] border-transparent bg-gradient-to-r w-full from-green-400 via-blue-500 to-purple-600 focus:border-green-400 focus:bg-gradient-to-r focus:from-green-400 focus:via-blue-500 focus:to-purple-600"></div>
-          </div>
-          <div className="w-full">
-            <input
-              type="text"
-              className="bg-transparent outline-none border-none h-14 w-full text-sm placeholder:text-sm md:text-base md:placeholder:text-base lg:text-xl lg:placeholder:text-xl placeholder:text-white text-white"
-              placeholder="Your Message"
-            />
-            <div className="border-b h-[2px] border-transparent bg-gradient-to-r w-full from-green-400 via-blue-500 to-purple-600 focus:border-green-400 focus:bg-gradient-to-r focus:from-green-400 focus:via-blue-500 focus:to-purple-600"></div>
-          </div>
-          <div className="w-full flex justify-end">
-            <Link href={""}>
-              <div className="h-10 btn-gradient-2 relative px-2 md:w-[180px] md:h-[50px] lg:w-[210px] rounded-full lg:h-[60px] flex gap-2 justify-center items-center">
-                <span className="text-[#8E6DFD] md:text-base lg:text-lg text-xs">
-                  Send
+        <div>
+          <form
+            onSubmit={handleSubmit}
+            className="max-w-[300px] gap-5 md:gap-12 lg:gap-16 md:max-w-[450px] mx-auto flex flex-col justify-center items-center lg:max-w-[800px] mt-5 md:mt-10 lg:mt-12"
+          >
+            <div className="w-full">
+              <input
+                type="text"
+                className="bg-transparent outline-none border-none h-14 w-full text-sm placeholder:text-sm md:text-base md:placeholder:text-base lg:text-xl lg:placeholder:text-xl placeholder:text-white text-white"
+                placeholder="Your Name"
+                onChange={handleNameChange}
+              />
+              <div className="border-b h-[2px] border-transparent bg-gradient-to-r w-full from-green-400 via-blue-500 to-purple-600 focus:border-green-400 focus:bg-gradient-to-r focus:from-green-400 focus:via-blue-500 focus:to-purple-600"></div>
+              {!!error.name && (
+                <span className="text-xs lg:text-sm text-[#FF0000] text-left">
+                  {error.name}
                 </span>
-                <Image
-                  priority={true}
-                  src={Arrow}
-                  width={10}
-                  height={10}
-                  alt="ellipse"
-                  className="w-[7px] h-[10px]"
-                />
-              </div>
-            </Link>
-          </div>
+              )}
+            </div>
+            <div className="w-full">
+              <input
+                type="text"
+                className="bg-transparent outline-none border-none h-14 w-full text-sm placeholder:text-sm md:text-base md:placeholder:text-base lg:text-xl lg:placeholder:text-xl placeholder:text-white text-white"
+                placeholder="Your Email"
+                onChange={handleEmailChange}
+              />
+              <div className="border-b h-[2px] border-transparent bg-gradient-to-r w-full from-green-400 via-blue-500 to-purple-600 focus:border-green-400 focus:bg-gradient-to-r focus:from-green-400 focus:via-blue-500 focus:to-purple-600"></div>
+              {!!error.mail && (
+                <span className="text-xs lg:text-sm text-[#FF0000] text-left">
+                  {error.mail}
+                </span>
+              )}
+            </div>
+            <div className="w-full">
+              <input
+                type="text"
+                className="bg-transparent outline-none border-none h-14 w-full text-sm placeholder:text-sm md:text-base md:placeholder:text-base lg:text-xl lg:placeholder:text-xl placeholder:text-white text-white"
+                placeholder="Your Message"
+                onChange={handleMessageChange}
+              />
+              <div className="border-b h-[2px] border-transparent bg-gradient-to-r w-full from-green-400 via-blue-500 to-purple-600 focus:border-green-400 focus:bg-gradient-to-r focus:from-green-400 focus:via-blue-500 focus:to-purple-600"></div>
+              {!!error.text && (
+                <span className="text-xs lg:text-sm text-[#FF0000] text-left">
+                  {error.text}
+                </span>
+              )}
+            </div>
+            <div className="w-full flex justify-end">
+              <button
+                type="submit"
+                disabled={!!error.text || !!error.name || !!error.mail}
+              >
+                <div className="h-10 btn-gradient-2 relative px-2 md:w-[180px] md:h-[50px] lg:w-[210px] rounded-full lg:h-[60px] flex gap-2 justify-center items-center">
+                  <span className="text-[#8E6DFD] md:text-base lg:text-lg text-xs">
+                    Send
+                  </span>
+                  <Image
+                    priority={true}
+                    src={Arrow}
+                    width={10}
+                    height={10}
+                    alt="ellipse"
+                    className="w-[7px] h-[10px]"
+                  />
+                </div>
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </main>
