@@ -8,7 +8,10 @@ import "swiper/css";
 export default function News() {
   return (
     <main>
-      <div id="news" className="background-gradient lg:px-36 md:px-20 px-10 pt-11 md:pt-[50px] pb-14 md:pb-[104px]">
+      <div
+        id="news"
+        className="background-gradient lg:px-36 md:px-20 px-10 pt-11 md:pt-[50px] pb-14 md:pb-[104px]"
+      >
         <div className="flex justify-start items-center h-12 md:h-[120px]">
           <div className="relative w-96 h-full flex justify-start items-center">
             <Image
@@ -25,52 +28,60 @@ export default function News() {
           </div>
         </div>
         <Swiper
-          spaceBetween={30}
+          spaceBetween={20}
           breakpoints={{
+            320: {
+              slidesPerView: 1,
+            },
+            490: {
+              slidesPerView: 1.5,
+            },
             640: {
-              slidesPerView: 1.5,
+              slidesPerView: 2,
             },
-            768: {
-              slidesPerView: 1.5,
+            1200: {
+              slidesPerView: 2.1,
             },
-            1024: {
-              slidesPerView: 2.5,
+            1444: {
+              slidesPerView: 3,
             },
           }}
           loop
+          speed={600}
           className="flex justify-between mt-[15px] lg:mt-[96px] gap-5 md:gap-[30px] lg:gap-5 xl:gap-[89px]"
         >
           {news.map((item, index) => {
             return (
-              <SwiperSlide
-                key={index}
-                className="max-w-[205px] md:max-w-[310px] lg:max-w-[350px] 2xl:max-w-[400px] !h-auto w-full flex flex-col border-2 bg_gradient bg-grey-100 hover:bg-rainbowGradient cursor-pointer"
-              >
-                <Image
-                  priority={true}
-                  src={item.img}
-                  alt="news image"
-                  className="w-full cursor-pointer max-h-[153px] lg:max-h-[230px]"
-                />
-                <div className="pt-5 pl-2 lg:pl-[14px] flex flex-col justify-between pr-5 pb-5 font-poppins filter-Shadow cursor-pointer">
-                  <span className="font-medium text-sm lg:text-[22px] leading-7 text-white block w-full !line-clamp-2">
-                    {item.title}
-                  </span>
-                  <p className="font-light text-xs lg:text-[17px] text-white pt-2 lg:pt-[14px] block leading-7 !line-clamp-2">
-                    {item.description}
-                  </p>
-                  <div className="flex items-center pt-[14px] lg:pt-[28px]">
-                    <a
-                      href={item.link}
-                      target="_blank"
-                      className="font-light  lg:font-medium text-xs lg:text-sm text-white  border-b-[1px] pb-1"
-                    >
-                      Read more
-                    </a>
-                    <ChevronRightIcon
-                      className="w-5 h-5 stroke-white"
-                      aria-hidden="true"
-                    />
+              <SwiperSlide key={index} className="w-full">
+                <div className="!h-[350px] max-w-[310px] lg:max-w-[350px] 2xl:max-w-[400px] md:!h-[371px] lg:!h-[500px] 2xl:!h-auto w-full flex flex-col border-2 bg_gradient bg-grey-100 hover:bg-rainbowGradient cursor-pointer">
+                  <Image
+                    priority={true}
+                    src={item.img}
+                    alt="news image"
+                    className="w-full cursor-pointer max-h-[153px] lg:max-h-[230px]"
+                  />
+                  <div className="pt-5 pl-2 lg:pl-[14px] h-full flex flex-col justify-between pr-5 pb-5 font-poppins filter-Shadow cursor-pointer">
+                    <div>
+                      <span className="font-medium text-sm lg:text-[22px] leading-7 text-white block w-full !line-clamp-2">
+                        {item.title}
+                      </span>
+                      <p className="font-light text-xs lg:text-[17px] text-white pt-2 lg:pt-[14px] block leading-7 !line-clamp-2">
+                        {item.description}
+                      </p>
+                    </div>
+                    <div className="flex items-center pt-[14px] lg:pt-[28px]">
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        className="font-light  lg:font-medium text-xs lg:text-sm text-white  border-b-[1px] pb-1"
+                      >
+                        Read more
+                      </a>
+                      <ChevronRightIcon
+                        className="w-5 h-5 stroke-white"
+                        aria-hidden="true"
+                      />
+                    </div>
                   </div>
                 </div>
               </SwiperSlide>
