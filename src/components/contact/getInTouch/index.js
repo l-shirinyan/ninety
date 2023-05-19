@@ -26,6 +26,7 @@ export default function GetInTouch() {
       setError((prev) => {
         return { ...prev, name: "Name field is required" };
       });
+      setName("");
     }
   };
 
@@ -40,6 +41,7 @@ export default function GetInTouch() {
       setError((prev) => {
         return { ...prev, mail: "Mail field is required" };
       });
+      setEmail("");
     } else {
       setError((prev) => {
         return { ...prev, mail: "Mail is not valid" };
@@ -57,6 +59,7 @@ export default function GetInTouch() {
       setError((prev) => {
         return { ...prev, text: "Message field is required" };
       });
+      setEmail("");
     }
   };
 
