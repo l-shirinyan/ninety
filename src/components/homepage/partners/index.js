@@ -22,7 +22,7 @@ const partenrs = [
 
 export default function OurTeam() {
   return (
-    <main className="h-[317px] md:h-[414px] lg:h-[746px] lg:px-36 md:px-20 px-10 pt-9 md:pt-[60px] bg-[#f5f5f5]">
+    <main className="h-[317px] md:h-[414px] lg:h-[746px] lg:px-36 md:px-20 px-5 pt-9 md:pt-[60px] bg-[#f5f5f5]">
       <h2 className="title-gradient mx-auto text-[22px] lg:mx-0 md:text-[40px] lg:text-[80px] font-bold pb-5 lg:pb-20 w-max">
         Our Partners
       </h2>
