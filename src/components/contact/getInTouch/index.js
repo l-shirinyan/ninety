@@ -59,7 +59,7 @@ export default function GetInTouch() {
       setError((prev) => {
         return { ...prev, text: "Message field is required" };
       });
-      setEmail("");
+      setMessage("");
     }
   };
 

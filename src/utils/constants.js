@@ -271,7 +271,7 @@ export const digital = [
   },
   {
     img: iMacSettings,
-    title: "iMac Settings",
+    title: "Website development",
   },
   {
     img: Details,
