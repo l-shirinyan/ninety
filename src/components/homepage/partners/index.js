@@ -8,6 +8,7 @@ import unnings from "../../../assets/partners/unnings.png";
 import fairfax from "../../../assets/partners/fairfax.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import { Autoplay } from "swiper";
 
 const partenrs = [
   liquid_crypto,
@@ -35,9 +36,11 @@ export default function OurTeam() {
         </div>
         <div className="flex gap-36 mt-9 md:mt-[50px] lg:mt-6 overflow-auto">
           <Swiper
-            onSlideChange={() => {}}
-            onSwiper={() => {}}
-            loop
+            autoplay={{
+              delay: 2000,
+              disableOnInteraction: false,
+            }}
+            modules={[Autoplay]}
             className="w-full mx-auto"
             breakpoints={{
               320: {
@@ -50,7 +53,7 @@ export default function OurTeam() {
                 slidesPerView: 5,
               },
             }}
-            autoplay
+            speed={600}
             spaceBetween={50}
           >
             {partenrs.map((item, idx) => (
