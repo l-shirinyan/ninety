@@ -73,7 +73,7 @@ export const dromdown = [
   { name: "About Us", href: "/about" },
   { name: "Services", href: "/services" },
   { name: "News", href: "/#news" },
-  { name: "Contacts", href: "/contact" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export const steps = [
